@@ -1,7 +1,7 @@
-#N canvas 76 53 1299 604 12;
+#N canvas 106 120 1299 604 12;
 #X obj 64 90 netreceive -u -b 8000;
 #X obj 64 117 oscparse hr;
-#X obj 64 146 print;
+#X obj 62 296 print;
 #N canvas 0 23 1141 478 sounds 0;
 #X obj 379 66 table son1;
 #X obj 30 90 soundfiler;
@@ -48,10 +48,10 @@
 #X obj 794 502 line~;
 #X msg 794 481 \$1 10;
 #X obj 797 463 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 9900 1;
+-1 -1 0 1;
 #X obj 684 518 dac~ 1 2;
 #X obj 319 168 body-music-player son1;
-#X obj 319 98 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 319 98 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X msg 342 131 attack \$1;
 #X msg 418 131 release \$1;
@@ -63,8 +63,8 @@
 #X obj 337 232 line~;
 #X msg 337 211 \$1 10;
 #X obj 340 193 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 12600 1;
-#X obj 550 99 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+-1 -1 6200 1;
+#X obj 550 99 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X msg 573 132 attack \$1;
 #X msg 649 132 release \$1;
@@ -78,7 +78,7 @@
 #X obj 571 194 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
 -1 -1 0 1;
 #X obj 550 169 body-music-player son2;
-#X obj 779 100 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 779 100 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X msg 802 133 attack \$1;
 #X msg 878 133 release \$1;
@@ -92,7 +92,7 @@
 #X obj 800 195 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
 -1 -1 0 1;
 #X obj 1010 101 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1
-1 1;
+0 1;
 #X msg 1033 134 attack \$1;
 #X msg 1109 134 release \$1;
 #X floatatom 1033 101 5 0 0 0 - - -;
@@ -114,7 +114,12 @@
 #X msg 865 73 zero \$1;
 #X floatatom 1094 39 5 0 0 0 - - -;
 #X msg 1094 73 zero \$1;
+#X obj 64 142 list trim;
+#X obj 64 167 route hr;
+#X obj 64 192 moses 40;
+#X obj 117 216 moses 200;
 #X connect 0 0 1 0;
+#X connect 1 0 65 0;
 #X connect 4 0 8 0;
 #X connect 4 0 8 1;
 #X connect 5 0 4 1;
@@ -176,3 +181,7 @@
 #X connect 62 0 55 0;
 #X connect 63 0 64 0;
 #X connect 64 0 56 0;
+#X connect 65 0 66 0;
+#X connect 66 0 67 0;
+#X connect 67 1 68 0;
+#X connect 68 0 15 0;

@@ -91,6 +91,7 @@ void loop() {
       sum += deltas[i];
     }
     sum /= (nbIndexes - 1);
+    sum = 60000 / sum;
 
     msg.empty();
     msg.add(sum);
